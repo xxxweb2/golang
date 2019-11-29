@@ -7,7 +7,7 @@ import (
 )
 
 type City struct {
-	UserId   int
+	UserId   int `db:"user_id"`
 	Username string
 	Sex      string
 	Email    string
@@ -35,6 +35,7 @@ func main() {
 	//第一条记录
 	fmt.Println("First: ", city)
 	//最后一条记录
+	city = City{}
 	db.Last(&city)
 	fmt.Println("Last", city)
 	//所有记录
@@ -42,5 +43,36 @@ func main() {
 	db.Find(&citys)
 	fmt.Println("all: ", citys)
 
+	//where
+	city = City{}
+	db.Where("Username = ?", "stu001").First(&city)
+	fmt.Println("where 获取第一个匹配记录", city)
 
+	//where in
+	city = City{}
+	db.Where("Username in (?)", []string{"stu001", "stu002"}).Find(&citys)
+	fmt.Println("where in ", citys)
+
+	//select
+	city = City{}
+	db.Select("user_id, username, sex").Where("user_id = ?", 3).First(&city)
+	fmt.Println("where select ", city)
+
+	//order
+	city = City{}
+	db.Order("user_id desc,user_id asc").Offset(1).Limit(2).First(&city)
+	fmt.Println("where order", city)
+
+	tmps := make([]Tmp, 0, 0)
+	db = db.Table("city").Select("user_id as uid,sex as se").Group("user_id").Scan(&tmps)
+	err = db.Error
+	fmt.Println("error: ", err)
+
+	fmt.Println(&tmps)
+
+}
+
+type Tmp struct {
+	Uid int
+	Se  string
 }
