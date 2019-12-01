@@ -10,10 +10,11 @@ func main() {
 			"message": "hello world",
 		})
 	})
-	c.GET("/t/:name/c", func(context *gin.Context) {
+	c.GET("/tes/:name/c", func(context *gin.Context) {
 		context.JSON(200, gin.H{
 			"message": "hello name",
 		})
 	})
 	c.Run()
+
 }
