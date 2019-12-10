@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/nsqio/go-nsq"
 	"time"
+
+	"github.com/nsqio/go-nsq"
 )
 
 func main() {
