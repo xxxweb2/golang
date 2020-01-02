@@ -175,7 +175,7 @@ func (c *Conn)identify()(*IdentifyResponse,error)  {
 		return nil,ErrIdentify{err.Error()}
 	}
 
-
+	frameType,data,err := ReadUnpackedResponse(c)
 
 
 }
