@@ -1,2 +1,2 @@
 # golang
-study
+golang 代码片段记录
