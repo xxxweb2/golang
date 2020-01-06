@@ -8,6 +8,8 @@ import (
 var Address = []string{"198.13.34.80:9092"}
 
 func main() {
+	fmt.Println("开始")
+	producerTest()
 }
 
 func producerTest() {
