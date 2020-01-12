@@ -12,6 +12,8 @@ func main() {
 	producerTest()
 }
 
+
+
 func producerTest() {
 	fmt.Printf("producer_test\n")
 	config := sarama.NewConfig()

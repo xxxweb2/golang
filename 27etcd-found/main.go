@@ -21,6 +21,8 @@ func NewClientDis(addr []string) (*ClientDis, error) {
 		Endpoints:   addr,
 		DialTimeout: 5 * time.Second,
 	}
+
+
 	client, err := clientv3.New(conf)
 
 	if err == nil {
