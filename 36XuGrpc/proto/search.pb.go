@@ -12,7 +12,6 @@ import (
 	status "google.golang.org/grpc/status"
 	math "math"
 )
-//protoc -I proto/ proto/search.proto --go_out=plugins=grpc:proto
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -25,7 +24,6 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
-//请求结构体
 type UserRequest struct {
 	Name                 string   `protobuf:"bytes,1,opt,name=name,proto3" json:"name,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -65,7 +63,6 @@ func (m *UserRequest) GetName() string {
 	return ""
 }
 
-//相应结构体
 type UserResponse struct {
 	Id                   int32    `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
 	Name                 string   `protobuf:"bytes,2,opt,name=name,proto3" json:"name,omitempty"`
